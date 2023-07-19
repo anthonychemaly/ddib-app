@@ -1,14 +1,14 @@
+import { useEffect, useState } from "react";
 import { StyleSheet } from "react-native";
 
-import EditScreenInfo from "@/components/EditScreenInfo";
-import { Text, View } from "@/components/Themed";
-import { Button, Spinner, useTheme } from "@ui-kitten/components";
+import { Spinner, useTheme } from "@ui-kitten/components";
 
 import IDCard from "@/components/IDCard";
-import { callGetMyIdentityFunction } from "@/utils";
-import { useEffect, useState } from "react";
+import { View } from "@/components/Themed";
 
 import contractInfo from "../../assets/contractInfo.json";
+
+import { callGetMyIdentityFunction } from "@/utils";
 
 export default function TabOneScreen() {
   const theme = useTheme();
@@ -54,7 +54,7 @@ export default function TabOneScreen() {
       {loading ? (
         <Spinner size="giant" />
       ) : (
-        <IDCard topInfo={info[0]} details={info[1]} />
+        <IDCard topInfo={info[0]} details={info[1]} imgUrl={info[2]} />
       )}
     </View>
   );

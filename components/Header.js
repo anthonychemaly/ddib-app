@@ -2,7 +2,7 @@ import { StyleSheet, View } from "react-native";
 import React from "react";
 import { Text, useTheme } from "@ui-kitten/components";
 
-const Header = () => {
+const Header = ({ title = "UZH SSID" }) => {
   const theme = useTheme();
 
   const styles = StyleSheet.create({
@@ -17,7 +17,7 @@ const Header = () => {
   return (
     <View style={styles.header}>
       <Text style={styles.text} category="h5">
-        UZH SSID
+        {title}
       </Text>
     </View>
   );

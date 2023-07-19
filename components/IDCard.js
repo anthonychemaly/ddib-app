@@ -4,7 +4,7 @@ import { Text } from "@ui-kitten/components";
 
 import { MonoText } from "./StyledText";
 
-const IDCard = ({ topInfo, details }) => {
+const IDCard = ({ topInfo, details, imgUrl }) => {
   return (
     <View style={styles.card}>
       <View style={styles.logoRow}>
@@ -18,7 +18,7 @@ const IDCard = ({ topInfo, details }) => {
       </View>
       <View style={styles["row"]}>
         <Image
-          source={require("../assets/images/picture.jpg")}
+          source={{ uri: imgUrl }}
           style={{ width: 120, aspectRatio: 0.77 }}
         />
         <View style={styles.topInfo}>

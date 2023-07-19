@@ -3,15 +3,17 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import {
   ApplicationProvider,
   IconRegistry,
+  Text,
   useTheme,
 } from "@ui-kitten/components";
 import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
-import { useColorScheme } from "react-native";
+import { View, useColorScheme } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as eva from "@eva-design/eva";
 import { EvaIconsPack } from "@ui-kitten/eva-icons";
+import Header from "@/components/Header";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -56,7 +58,13 @@ function RootLayoutNav() {
       <IconRegistry icons={EvaIconsPack} />
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: "modal" }} />
+        <Stack.Screen
+          name="modal"
+          options={{
+            presentation: "modal",
+            header: () => <Header title="Proof of Adulthood" />,
+          }}
+        />
       </Stack>
     </ApplicationProvider>
   );

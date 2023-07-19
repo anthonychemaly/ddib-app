@@ -55,7 +55,10 @@ export default function TabLayout() {
     <SafeAreaView
       style={{ flex: 1, backgroundColor: theme["background-basic-color-3"] }}
     >
-      <Tabs tabBar={(props) => <BottomTabBar {...props} />}>
+      <Tabs
+        screenOptions={{ header: () => <Header /> }}
+        tabBar={(props) => <BottomTabBar {...props} />}
+      >
         <Tabs.Screen
           name="index"
           options={{
@@ -73,14 +76,23 @@ export default function TabLayout() {
                 />
               );
             },
-            header: () => <Header />,
           }}
         />
         <Tabs.Screen
           name="two"
           options={{
-            title: "Tab Two",
-            tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+            title: "Proofs",
+            tabBarIcon: ({ focused, size }) => (
+              <Icon
+                style={{ height: size, width: size }}
+                fill={
+                  focused
+                    ? theme["color-primary-500"]
+                    : theme["text-basic-color"]
+                }
+                name="grid-outline"
+              />
+            ),
           }}
         />
       </Tabs>
