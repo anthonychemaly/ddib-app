@@ -54,14 +54,16 @@ export default function TabTwoScreen() {
   const data = [
     {
       title: "Proof of Adulthood",
+      href: "/modal",
     },
     {
       title: "Basic Information",
+      href: "/basicmodal",
     },
   ];
 
   const renderItem = ({ item, index }) => (
-    <Link href="/modal" asChild>
+    <Link href={item?.href} asChild>
       <TouchableOpacity style={styles.item}>
         <Text category="h6" style={styles.title}>
           {item.title}

@@ -65,6 +65,13 @@ function RootLayoutNav() {
             header: () => <Header title="Proof of Adulthood" />,
           }}
         />
+        <Stack.Screen
+          name="basicmodal"
+          options={{
+            presentation: "modal",
+            header: () => <Header title="Basic Information" />,
+          }}
+        />
       </Stack>
     </ApplicationProvider>
   );

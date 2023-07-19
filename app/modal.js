@@ -1,9 +1,7 @@
 import { StatusBar } from "expo-status-bar";
-import { Platform, StyleSheet } from "react-native";
+import { Platform, StyleSheet, View } from "react-native";
 
-import EditScreenInfo from "@/components/EditScreenInfo";
-import { Text, View } from "@/components/Themed";
-import { useTheme } from "@ui-kitten/components";
+import { Icon, Spinner, Text, useTheme } from "@ui-kitten/components";
 import {
   callGetIsAdultFunction,
   callGetMyIdentityTokenIdFunction,
@@ -43,7 +41,24 @@ export default function ModalScreen() {
 
   return (
     <View style={styles.container}>
-      <Text>{info?.toString()}</Text>
+      {loading ? (
+        <Spinner size="large" />
+      ) : (
+        <View style={styles.container}>
+          <Icon
+            name={info ? "checkmark-circle-2-outline" : "slash-outline"}
+            style={{
+              width: 100,
+              height: 100,
+              marginBottom: 32,
+            }}
+            fill="#ffffff"
+          />
+          <Text category="h4">
+            {info ? "You are an adult" : "You are not an adult"}
+          </Text>
+        </View>
+      )}
       {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
     </View>
